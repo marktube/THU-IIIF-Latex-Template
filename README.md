@@ -11,5 +11,7 @@ latex templates for tsinghua university iiif
 
 ![](ol2.PNG)
 
-然后将本项目的压缩包文件上传即可。其它使用说明请参考本项目编译出来的pdf文件和[这篇文章](https://lib.tsinghua.edu.cn/__local/C/B6/DD/EF041C3EC04D27DE5D30506A79B_9067CE0A_12FE64.pdf?e=.pdf)。
+然后将本项目的压缩包文件上传即可。上传完成后在左上角的**Menu（菜单）**中将**Compiler（编译器）**设置为**LuaLatex**，然后点击右边中间的**Recompile（重新编译）**按钮即可看到pdf文件。
+
+其它使用说明请参考本项目编译出来的pdf文件和[这篇文章](https://lib.tsinghua.edu.cn/__local/C/B6/DD/EF041C3EC04D27DE5D30506A79B_9067CE0A_12FE64.pdf?e=.pdf)。
 
