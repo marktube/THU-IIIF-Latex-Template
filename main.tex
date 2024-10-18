@@ -1,0 +1,21 @@
+\documentclass{thu-sem-proj-doc}
+%\usepackage{xeCJK}
+%\setCJKmainfont{SimSun}
+%Image de fond
+\begin{document}
+  \makecover{IIIF文档latex模板使用说明（这里设置标题）}{刘彦超（这里设置作者）}
+  %\AddToShipoutPicture{\BackgroundPic}
+  % set foreground pic 设置背景为清华校徽，可覆盖图片
+  \ForegroundPic{thu_logo.jpg}{0}{0.15}
+  \makedocheader{右页眉在这里设置（建议为标题）}{}{左页眉在这里（建议为清华大学产业创新与金融研究院）}
+  \makedocfooter{}{}
+
+  % 可以新建文件在这里加入
+  \input{src/basic.tex}
+  \input{src/model.tex}
+  \input{src/math.tex}
+
+  % 这里设置引用格式为bibtex
+  \bibliography{ref.bib}{}
+  \bibliographystyle{plain}
+\end{document}

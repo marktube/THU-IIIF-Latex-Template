@@ -1,0 +1,78 @@
+\section{数学字符表示}
+支持行内公式，如：“$\textbf{s}\in \mathbb{R}^n, \sum_{i=1}^n\textbf{s}_i=1$和状态转移矩阵$\textbf{M}\in \mathbb{R}^{n\times n}, \sum_{j=0}^n\textbf{M}_{ij}=1$，求一阶马尔可夫链的稳态分布$\textbf{\pi}\in \mathbb{R}^n$，满足方程$\textbf{M}\textbf{\pi}=\textbf{\pi}, \sum_{i=1}^n\textbf{\pi}_i=1$”。
+还有行间公式：
+\begin{equation}
+    \mathbf{M}^T\mathbf{E}=\mathbf{E}, \quad \mathbf{E} = \begin{bmatrix}
+        1\\
+        1\\
+        \vdots\\
+        1
+    \end{bmatrix} 
+\end{equation}
+多行公式推导：
+\begin{equation}
+    \begin{gathered}
+        \pi = (dM+\frac{1-d}nE)\pi, \quad \pi\cdot \begin{bmatrix}1&1&\cdots&1\end{bmatrix}=1\\
+        \Downarrow\\
+        \pi = dM\pi+ \frac{1-d}n\begin{bmatrix}1&1&\cdots&1\end{bmatrix}\\
+        \Downarrow\\
+        (I-dM)\pi=\frac{1-d}n\begin{bmatrix}1&1&\cdots&1\end{bmatrix}
+    \end{gathered}
+\end{equation}
+矩阵表示：
+\begin{equation}
+    IF=
+    \begin{bmatrix} 
+        c_{11} & c_{12} & \cdots & c_{1n}\\
+        c_{21} & c_{22} & \cdots & c_{2n}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        c_{n1} & c_{n2} & \cdots & c_{nn}
+    \end{bmatrix}^T
+    \cdot
+    \begin{pmatrix}
+        1\\
+        1\\
+        \vdots\\
+        1
+        \end{pmatrix}
+    \div
+    \begin{pmatrix}
+        p_1\\
+        p_2\\
+        \vdots\\
+        p_n
+    \end{pmatrix}
+\end{equation}
+\subsection{算法描述支持}
+例如算法~\ref{algo:ycrank}
+\begin{algorithm}[hbt]
+    \caption{YCRank}
+    \begin{algorithmic}
+        \REQUIRE $\mathbf{M}(n \times n),pub(n\times 1),trust(n\times 1),d$
+        \ENSURE $r$
+            \FOR{$i=1$ \TO $n$}
+                \STATE $rowSum \gets \sum_{j=1}^{n}\mathbf{M}_{ij}$
+                \IF{$\mathbf{M}_{ii}>\frac{rowSum}{n}$}
+                    \STATE $ext\gets (\mathbf{M}_{ii}-\frac{rowSum}{n})\div(n-1)$ 
+                    \FOR{$j=1$ \TO $n$ and $j\ne i$}
+                        \STATE $\mathbf{M}_{ij} \gets \mathbf{M}_{ij} + ext$
+                    \ENDFOR
+                \ENDIF
+            \ENDFOR
+            \FOR{$i=1$ \TO $n$,$j=1$ \TO $n$}
+                \STATE $\mathbf{M}_{ji} \gets \mathbf{M}_{ji} \times trust[i]$
+            \ENDFOR
+            \FOR{$i=1$ \TO $n$,$j=1$ \TO $n$}
+                \STATE $\mathbf{M}_{ji} \gets \mathbf{M}_{ji} \div pub[i]$
+            \ENDFOR
+            \FOR{$i=1$ \TO $n$}
+                \STATE $rowSum \gets \sum_{j=1}^{n}\mathbf{M}_{ij}$
+                \FOR{$j=1$ \TO $n$}
+                    \STATE $\mathbf{M}_{ij} \gets \mathbf{M}_{ij}\div rowSum$
+                \ENDFOR
+            \ENDFOR
+            \STATE $\mathbf{M} \gets \mathbf{M}^T$
+            \STATE $r \gets \frac{1-d}{n}(I-dM)^{-1}\begin{bmatrix}1\\1\\\vdots\\1\end{bmatrix}$
+    \end{algorithmic}
+    \label{algo:ycrank}
+\end{algorithm}
