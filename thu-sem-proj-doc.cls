@@ -35,6 +35,7 @@
 \RequirePackage{ctex}
 \RequirePackage{fontspec} 				% for loading fonts
 \RequirePackage{titlesec}
+\RequirePackage{color}
 \RequirePackage{hyperref}
 \RequirePackage{graphicx}
 \RequirePackage{multirow}
@@ -117,6 +118,16 @@
   \fancyfoot[C]{\thepage}
   \fancyfoot[R]{#2}
 }
+
+%Setup color for hyper link
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    filecolor=blue,      
+    urlcolor=blue,
+    citecolor=cyan,
+}
+
 
 % set title format !no chapter macro in article class!
 %\titleformat{\chapter}[block]
