@@ -90,8 +90,8 @@
         \fontsize{15pt}{15pt}\selectfont{\heiti #2\\ }
         \vspace{2cm}
         \fontsize{15pt}{15pt}\selectfont{\songti \today\\ }
-        \vspace{10cm}
-        \includegraphics[width=6cm]{dtlogow.png}
+        \vspace{8cm}
+        \includegraphics[width=10cm]{dtlogow.png}
         \end{center}
     \newpage
     \setcounter{page}{1}
