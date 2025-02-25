@@ -35,7 +35,6 @@
 \RequirePackage{ctex}
 \RequirePackage{fontspec} 				% for loading fonts
 \RequirePackage{titlesec}
-\RequirePackage{color}
 \RequirePackage{hyperref}
 \RequirePackage{graphicx}
 \RequirePackage{multirow}
@@ -92,7 +91,7 @@
         \vspace{2cm}
         \fontsize{15pt}{15pt}\selectfont{\songti \today\\ }
         \vspace{8cm}
-        \includegraphics[width=10cm]{dtlogow.png}
+        \includegraphics[width=10cm]{img/iiif-logo.jpeg}
         \end{center}
     \newpage
     \setcounter{page}{1}
@@ -127,7 +126,6 @@
     urlcolor=blue,
     citecolor=cyan,
 }
-
 
 % set title format !no chapter macro in article class!
 %\titleformat{\chapter}[block]
