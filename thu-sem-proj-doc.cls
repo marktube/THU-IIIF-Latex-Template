@@ -35,6 +35,7 @@
 \RequirePackage{ctex}
 \RequirePackage{fontspec} 				% for loading fonts
 \RequirePackage{titlesec}
+\RequirePackage{caption}
 \RequirePackage{hyperref}
 \RequirePackage{graphicx}
 \RequirePackage{multirow}
@@ -125,6 +126,12 @@
     filecolor=blue,      
     urlcolor=blue,
     citecolor=cyan,
+}
+
+% Setup caption font
+\captionsetup{
+    font={normalsize,it,stretch=1.25},justification=raggedright,
+    labelfont={small,normal,stretch=1.25}
 }
 
 % set title format !no chapter macro in article class!
