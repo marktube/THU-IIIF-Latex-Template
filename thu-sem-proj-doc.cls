@@ -56,6 +56,9 @@
 % set algorithm
 \RequirePackage{algorithm}
 \RequirePackage{algorithmic}
+% set chinese bibstyle
+\RequirePackage{gbt7714}
+\bibliographystyle{gbt7714-numerical}
 
 % set backgroud pic
 \newcommand\BackgroundPic{
