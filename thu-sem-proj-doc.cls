@@ -57,8 +57,10 @@
 \RequirePackage{algorithm}
 \RequirePackage{algorithmic}
 % set chinese bibstyle
-\RequirePackage{gbt7714}
-\bibliographystyle{gbt7714-numerical}
+%\RequirePackage{gbt7714}
+%\bibliographystyle{gbt7714-numerical}
+\RequirePackage[style=gb7714-2015,backend=biber,sorting=none]{biblatex}
+
 
 % set backgroud pic
 \newcommand\BackgroundPic{
