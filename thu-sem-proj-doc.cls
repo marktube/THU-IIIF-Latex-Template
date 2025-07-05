@@ -21,11 +21,11 @@
 \DeclareOption{11pt}{\def\@@ptsize{11pt}}
 \DeclareOption{12pt}{\def\@@ptsize{12pt}}
 \DeclareOption*{%
-  \PassOptionsToClass{\CurrentOption}{article}
+  \PassOptionsToClass{\CurrentOption}{book}
 }
 
 \ProcessOptions\relax
-\LoadClass[a4paper,\@@ptsize]{article}
+\LoadClass[a4paper,\@@ptsize]{book}
 \ProcessOptions
 
 
@@ -60,7 +60,8 @@
 %\RequirePackage{gbt7714}
 %\bibliographystyle{gbt7714-numerical}
 \RequirePackage[style=gb7714-2015,backend=biber,sorting=none]{biblatex}
-
+% set counter
+\RequirePackage{{chngcntr}}
 
 % set backgroud pic
 \newcommand\BackgroundPic{
@@ -140,19 +141,37 @@
 }
 
 % set title format !no chapter macro in article class!
-%\titleformat{\chapter}[block]
-%  {\centering\fontsize{15pt}{15pt}\selectfont\heiti\thispagestyle{fancy}}{\thechapter}{2pc}{}
 
-%\titleformat{\section}[block]
-%  {\fontsize{14pt}{14pt}\selectfont\heiti}
-%  {\thesection}{7pt}{}
+\renewcommand{\thechapter}{第\chinese{chapter}章}
+% 让 section 不带 chapter 编号
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+% 让图表编号跟随章节
+\counterwithin{table}{chapter}
+\renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}
 
-%\titleformat{\subsection}[block]
-%  {\fontsize{14pt}{14pt}\selectfont\heiti}
-%  {\thesubsection}{7pt}{}
+\counterwithin{figure}{chapter}
+\renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}
 
-%\titleformat{\subsubsection}[block]
-%  {\fontsize{12pt}{12pt}\selectfont\heiti}
-%  {\thesubsubsection}{6pt}{}
+\counterwithin{equation}{chapter}
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+
+
+\titleformat{\chapter}[block]
+  {\centering\fontsize{18pt}{18pt}\selectfont\heiti\thispagestyle{fancy}}{\thechapter}{2pc}{}
+
+\titleformat{\section}[block]
+  {\fontsize{14pt}{14pt}\selectfont\heiti}
+  {\thesection}{7pt}{}
+
+\titleformat{\subsection}[block]
+  {\fontsize{12pt}{12pt}\selectfont\heiti}
+  {\thesubsection}{7pt}{}
+
+\titleformat{\subsubsection}[block]
+  {\fontsize{10pt}{10pt}\selectfont\heiti}
+  {\thesubsubsection}{6pt}{}
 
 % Font
+%\setCJKmainfont{}

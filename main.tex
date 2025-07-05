@@ -1,14 +1,20 @@
 \documentclass{thu-sem-proj-doc}
 %\usepackage{xeCJK}
 %\setCJKmainfont{SimSun}
+% 设置英文字体为 Times New Roman
+\setmainfont{Times New Roman}
+
+% 设置中文为仿宋（可选）
+\setCJKmainfont{FangSong}
+
 %Image de fond
 \addbibresource{ref.bib}
 \begin{document}
-  \makecover{IIIF文档latex模板使用说明（这里设置标题）}{刘彦超（这里设置作者）}
+  \makecover{IIIF书籍latex模板使用说明（这里设置标题）}{刘彦超（这里设置作者）}
   %\AddToShipoutPicture{\BackgroundPic}
   % set foreground pic 设置背景为清华校徽，可覆盖图片
   \ForegroundPic{thu_logo.jpg}{0}{0.15}
-  \makedocheader{右页眉在这里设置（建议为标题）}{}{左页眉在这里（建议为清华大学产业创新与金融研究院）}
+  \makedocheader{{\songti 右页眉在这里（建议为标题）}}{}{{\songti 左页眉在这里（建议为产融院）}}
   \makedocfooter{}{}
 
   % 可以新建文件在这里加入

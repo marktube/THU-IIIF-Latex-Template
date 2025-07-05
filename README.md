@@ -13,3 +13,7 @@ latex templates for tsinghua university iiif
 
 然后将本项目的压缩包文件上传即可。其它使用说明请参考本项目编译出来的pdf文件和[这篇文章](https://lib.tsinghua.edu.cn/__local/C/B6/DD/EF041C3EC04D27DE5D30506A79B_9067CE0A_12FE64.pdf?e=.pdf)。
 
+---
+
+本分支为book版本，支持chapter
+
