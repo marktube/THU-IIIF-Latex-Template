@@ -96,6 +96,19 @@
     }
 }
 
+% set watermark
+\newcommand{\watermark}[3]{
+    \AddToHook{shipout/foreground}{
+        \begin{tikzpicture}[remember picture,overlay]
+         \foreach \y in {-12, -4, 4, 12} {
+           \foreach \x in {-10.5, -3.5, 3.5, 10.5}{
+             \node[black,rotate=#2,scale=2,opacity=#3] at ([xshift=\x cm, yshift=\y cm] current page.center) {\textcolor{gray!80!cyan!30}{#1}}; 
+           }
+         }
+        \end{tikzpicture}
+    }
+}
+
 % define date format
 \renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
 

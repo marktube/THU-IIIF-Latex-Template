@@ -20,4 +20,5 @@ latex templates for tsinghua university iiif
 + 加入Adobe系列字体，避免生僻字无法生成
 + 支持MacTex 2025本地XeLatex编译，因为参考文献使用了biber，所以要在`main.tex`首行加入`% !BIB TS-program = biber`，具体可参考[这里](https://tex.stackexchange.com/questions/501889/bibliography-using-biblatex-does-not-work-with-texshop)
 + 支持MacTex 2025本地LuaLatex编译，因为ctex的默认字体路径原因，需要按照[这里的issue](https://github.com/CTeX-org/ctex-kit/issues/722#issuecomment-2888518209)进行设置。
++ 加入水印命令
 
