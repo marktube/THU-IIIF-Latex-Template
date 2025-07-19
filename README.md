@@ -21,4 +21,5 @@ latex templates for tsinghua university iiif
 + 支持MacTex 2025本地XeLatex编译，因为参考文献使用了biber，所以要在`main.tex`首行加入`% !BIB TS-program = biber`，具体可参考[这里](https://tex.stackexchange.com/questions/501889/bibliography-using-biblatex-does-not-work-with-texshop)
 + 支持MacTex 2025本地LuaLatex编译，因为ctex的默认字体路径原因，需要按照[这里的issue](https://github.com/CTeX-org/ctex-kit/issues/722#issuecomment-2888518209)进行设置。
 + 加入水印命令
++ 支持参考文献中加入自定义中文字体，参考[这里](https://www.overleaf.com/learn/latex/Questions/I_have_a_custom_font_I%27d_like_to_load_to_my_document._How_can_I_do_this%3F)
 

@@ -239,8 +239,14 @@
   ItalicFont = {AdobeKaitiStd-Regular}  
 ]
 
+% load adobe song font
+\newCJKfontfamily{\adobesong}{AdobeSongStd-Light}[
+  Path = /Users/yanchaoliu/Downloads/latex/fonts/,
+  Extension = .otf
+]
+
 % set ref font as songti
-\renewcommand{\bibfont}{\fontsize{12pt}{14pt}\selectfont\songti}
+\renewcommand{\bibfont}{\fontsize{12pt}{14pt}\selectfont\adobesong}
 
 % set bold in chinese
 \newcommand{\textbfcn}[1]{{\songti #1}}
