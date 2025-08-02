@@ -233,15 +233,15 @@
 % 设置中文为仿宋（可选）
 %\setCJKmainfont{FangSong}
 \setCJKmainfont{AdobeFangsongStd-Regular}[
-  Path = /Users/yanchaoliu/Downloads/latex/fonts/,
-  Extention = .otf
+  Path = ./fonts/,
+  Extension = .otf,
   BoldFont = {AdobeHeitiStd-Regular},
   ItalicFont = {AdobeKaitiStd-Regular}  
 ]
 
 % load adobe song font
 \newCJKfontfamily{\adobesong}{AdobeSongStd-Light}[
-  Path = /Users/yanchaoliu/Downloads/latex/fonts/,
+  Path = ./fonts/,
   Extension = .otf
 ]
 
