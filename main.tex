@@ -20,6 +20,16 @@
   \makedocfooter{}{}
 
   % 可以新建文件在这里加入
+  \pagenumbering{Roman}        % 设置页码为罗马数字
+  \setcounter{page}{1}         % 从 i 开始
+  \phantomsection
+  \addcontentsline{toc}{chapter}{目录}
+  \tableofcontents
+  \clearpage
+  % 正文
+  \pagenumbering{arabic}  % 开始阿拉伯数字页码（1,2,3,...）
+  \setcounter{page}{1}
+
   \input{src/basic.tex}
   \input{src/model.tex}
   \input{src/math.tex}
