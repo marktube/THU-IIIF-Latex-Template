@@ -55,6 +55,7 @@
 % set the equations
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
+%\RequirePackage{bm}
 % set list
 \RequirePackage{enumerate}
 % set algorithm
@@ -72,7 +73,11 @@
 \RequirePackage{makecell}
 %%% for dashed line in table
 \RequirePackage{arydshln}
-
+%%% adjust footnote position
+%\RequirePackage{afterpage}
+% set circled numbers
+\RequirePackage{pifont}
+\renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}}
 
 % set backgroud pic
 \newcommand\BackgroundPic{
@@ -122,7 +127,7 @@
         \vspace{2cm}
         \fontsize{15pt}{15pt}\selectfont{\songti \today\\ }
         \vspace{8cm}
-        \includegraphics[width=10cm]{img/iiif-logo.jpeg}
+        \includegraphics[width=6cm]{img/thu-pub.png}
         \end{center}
     \newpage
     \clearpage
@@ -134,11 +139,13 @@
 \newcommand*{\makedocheader}[3]{
   % setup fancyhdr
   \pagestyle{fancy}
-  \fancyhf{}
-  \setlength{\headheight}{15pt}
-  \rhead{#1}
-  \chead{#2}
-  \lhead{#3}
+  \fancyhead{} % 清空页眉
+  \renewcommand{\headrulewidth}{0pt} % 移除页眉下方的横线
+  %\fancyhf{}
+  %\setlength{\headheight}{15pt}
+  %\rhead{#1}
+  %\chead{#2}
+  %\lhead{#3}
 }
 
 % Define a footer for doc
@@ -149,6 +156,11 @@
   \fancyfoot[C]{\thepage}
   \fancyfoot[R]{#2}
 }
+
+% footnote numbered per page
+\counterwithin*{footnote}{page}
+% forbid footnote splitting in page
+%\interfootnotelinepenalty=10000
 
 % Set margin for self defined chapter title in toc
 %\renewcommand{\cftchapnumwidth}{4em}  % 调整目录编号宽度
@@ -167,10 +179,20 @@
     citecolor=cyan,
 }
 
+
+%\newCJKfontfamily{\kaishu}{AdobeKaitiStd-Regular}[
+%  Path = ./fonts/,
+%  Extension = .otf
+%]
+\DeclareCaptionFont{kaishu}{\kaishu}
+\DeclareCaptionFont{heiti}{\heiti}
+\DeclareCaptionLabelSeparator{twospace}{\hspace{0.6em}}
 % Setup caption font
 \captionsetup{
-    font={normalsize,it,stretch=1.25},justification=raggedright,
-    labelfont={small,bf,stretch=1.25}
+    labelsep=twospace,
+    font={normalsize,kaishu,stretch=1.25},
+    justification=raggedright,
+    labelfont={small,heiti,stretch=1.25}
 }
 
 % Setup python code highlight
@@ -194,7 +216,8 @@
 
 % set title format !no chapter macro in article class!
 
-\renewcommand{\thechapter}{第\chinese{chapter}章}
+%\renewcommand{\thechapter}{第\chinese{chapter}章}
+\renewcommand{\thechapter}{第\arabic{chapter}章}
 % 让 section 不带 chapter 编号
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
 \renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
