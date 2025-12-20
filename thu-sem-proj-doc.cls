@@ -25,7 +25,7 @@
 }
 
 \ProcessOptions\relax
-\LoadClass[a4paper,\@@ptsize]{book}
+\LoadClass[a4paper,\@@ptsize, twoside]{book}
 \ProcessOptions
 
 
@@ -134,19 +134,35 @@
     \thispagestyle{empty}  % 清除页码
 }
 
+% for leftmark command removing number label
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
 % Define a header for doc
 % Usage: \makedocheader{<left>}{<right>}
-\newcommand*{\makedocheader}[3]{
+\newcommand*{\makedocheader}[1]{
   % setup fancyhdr
   \pagestyle{fancy}
+  \setlength{\headheight}{15pt}.
   \fancyhead{} % 清空页眉
   \renewcommand{\headrulewidth}{0pt} % 移除页眉下方的横线
+  % 设置页眉
+  \fancyhead[LE]{\thepage\quad\quad \textbf{#1}}      % L: Left, E: Even (偶数页左侧显示页码)
+  \fancyhead[RO]{\textbf{
+    \ifnum\value{chapter}=0
+      \leftmark
+    \else
+      \thechapter\quad\leftmark
+    \fi
+  }\quad\quad\thepage}      % R: Right, O: Odd (奇数页右侧显示页码)
+  %\fancyhead[RE]{章节名称}      % 偶数页右侧可显示章名（可选）
+  %\fancyhead[LO]{文章标题}      % 奇数页左侧可显示标题（可选）
   %\fancyhf{}
   %\setlength{\headheight}{15pt}
   %\rhead{#1}
   %\chead{#2}
   %\lhead{#3}
 }
+
 
 % Define a footer for doc
 % Usage: \makedocfooter{<left>}{<center>}{<right>}
@@ -233,8 +249,26 @@
 \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
 
 
-\titleformat{\chapter}[block]
-  {\centering\fontsize{18pt}{18pt}\selectfont\heiti\thispagestyle{fancy}}{\thechapter}{2pc}{}
+
+%\titleformat{\chapter}[block]
+%  {\hfill\fontsize{18pt}{18pt}\selectfont\heiti\thispagestyle{empty}}{\thechapter}{2pc}{}
+
+\titleformat{\chapter}[display]
+  {\selectfont\heiti\thispagestyle{empty}}
+  {%
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[black,rotate=0,scale=1.5,opacity=0.25] at (current page.center) {\includegraphics[width=\paperwidth]{img/ccover.png}}; 
+    \end{tikzpicture}
+    %\vspace*{1cm}
+    \hfill
+    \huge\bfseries
+    \thechapter
+  }
+  {1em}
+  {\hfill\Huge\bfseries}
+  [\ifnum\value{chapter}>0
+      \clearpage
+    \fi]
 
 \titleformat{\section}[block]
   {\fontsize{16pt}{16pt}\selectfont\heiti}

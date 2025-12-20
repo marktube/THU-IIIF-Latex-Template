@@ -11,18 +11,19 @@
 %Image de fond
 \addbibresource{ref.bib}
 \begin{document}
-  \makecover{IIIF书籍latex模板使用说明（这里设置标题）}{刘彦超（这里设置作者）}
+  \makecover{\heiti IIIF书籍latex模板使用说明（这里设置标题）}{\kaishu 刘彦超（这里设置作者）}
   %\AddToShipoutPicture{\BackgroundPic}
   % set foreground pic 设置背景为清华校徽，可覆盖图片
-  \ForegroundPic{thu_logo.jpg}{0}{0.15}
-  \watermark{内部样稿 仅供交流}{60}{0.8}
-  \makedocheader{{\songti 右页眉在这里（建议为标题）}}{}{{\songti 左页眉在这里（建议为产融院）}}
+  %\ForegroundPic{thu_logo.jpg}{0}{0.15}
+  %\watermark{内部样稿 仅供交流}{60}{0.8}
+  \makedocheader{双数页的页眉在这里（建议为标题）}
   \makedocfooter{}{}
 
   % 可以新建文件在这里加入
   \pagenumbering{Roman}        % 设置页码为罗马数字
   \setcounter{page}{1}         % 从 i 开始
   \phantomsection
+  \renewcommand{\contentsname}{\hfill 目\,录}
   \addcontentsline{toc}{chapter}{目录}
   \tableofcontents
   \clearpage
@@ -37,5 +38,7 @@
   % 这里设置引用格式为bibtex
   \newpage
   %\bibliography{ref.bib}{}
-  \printbibliography[title={参考文献}]
+  \section*{参考文献}
+  \addcontentsline{toc}{section}{参考文献}
+ \printbibliography[heading=none]  % 不显示标题
 \end{document}
