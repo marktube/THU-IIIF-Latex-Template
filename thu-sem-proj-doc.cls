@@ -271,7 +271,7 @@
     \fi]
 
 \titleformat{\section}[block]
-  {\fontsize{16pt}{16pt}\selectfont\heiti}
+  {\centering\fontsize{16pt}{16pt}\selectfont\heiti}
   {\thesection}{7pt}{}
 
 \titleformat{\subsection}[block]
