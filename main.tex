@@ -1,5 +1,5 @@
 % !BIB TS-program = biber
-\documentclass{thu-sem-proj-doc}
+\documentclass[fontset=none]{thu-sem-proj-doc}
 %\usepackage{xeCJK}
 %\setCJKmainfont{SimSun}
 % 设置英文字体为 Times New Roman
@@ -16,8 +16,7 @@
   % set foreground pic 设置背景为清华校徽，可覆盖图片
   %\ForegroundPic{thu_logo.jpg}{0}{0.15}
   %\watermark{内部样稿 仅供交流}{60}{0.8}
-  \makedocheader{双数页的页眉在这里（建议为标题）}
-  \makedocfooter{}{}
+  \pagestyle{plain}
 
   % 可以新建文件在这里加入
   \pagenumbering{Roman}        % 设置页码为罗马数字
@@ -28,6 +27,8 @@
   \tableofcontents
   \clearpage
   % 正文
+  \makedocheader{双数页的页眉在这里（建议为标题）}
+  \makedocfooter{}{}
   \pagenumbering{arabic}  % 开始阿拉伯数字页码（1,2,3,...）
   \setcounter{page}{1}
 

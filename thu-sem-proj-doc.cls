@@ -142,7 +142,7 @@
 \newcommand*{\makedocheader}[1]{
   % setup fancyhdr
   \pagestyle{fancy}
-  \setlength{\headheight}{15pt}.
+  \setlength{\headheight}{15pt}
   \fancyhead{} % 清空页眉
   \renewcommand{\headrulewidth}{0pt} % 移除页眉下方的横线
   % 设置页眉
@@ -254,7 +254,7 @@
 %  {\hfill\fontsize{18pt}{18pt}\selectfont\heiti\thispagestyle{empty}}{\thechapter}{2pc}{}
 
 \titleformat{\chapter}[display]
-  {\selectfont\heiti\thispagestyle{empty}}
+  {\selectfont\heiti\ifnum\value{chapter}>0\thispagestyle{empty}\fi}
   {%
     \begin{tikzpicture}[remember picture,overlay]
       \node[black,rotate=0,scale=1.5,opacity=0.25] at (current page.center) {\includegraphics[width=\paperwidth]{img/ccover.png}}; 
