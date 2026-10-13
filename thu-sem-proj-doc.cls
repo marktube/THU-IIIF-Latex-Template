@@ -297,13 +297,23 @@
 ]
 
 % load adobe song font
-\newCJKfontfamily{\adobesong}{AdobeSongStd-Light}[
+\newCJKfontfamily{\songti}{AdobeSongStd-Light}[
+  Path = ./fonts/,
+  Extension = .otf
+]
+
+\newCJKfontfamily{\kaishu}{AdobeKaitiStd-Regular}[
+  Path = ./fonts/,
+  Extension = .otf
+]
+
+\newCJKfontfamily{\heiti}{AdobeHeitiStd-Regular}[
   Path = ./fonts/,
   Extension = .otf
 ]
 
 % set ref font as songti
-\renewcommand{\bibfont}{\fontsize{12pt}{14pt}\selectfont\adobesong}
+\renewcommand{\bibfont}{\fontsize{12pt}{14pt}\selectfont\songti}
 
 % set bold in chinese
 \newcommand{\textbfcn}[1]{{\songti #1}}
